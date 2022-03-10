@@ -36,6 +36,7 @@ const switchTab = (id) => {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
+    document.getElementById("liked").innerHTML = '';
   } else if (id === "liked") {
     document.getElementById("liked").style.display = "block";
     document.getElementById("posts").style.display = "none";
@@ -142,14 +143,18 @@ const showPosts = (posts) => {
     const div = createPost(post);
     productsContainer.appendChild(div);
   });
+
+
 };
 
 const displayLikedPosts = () => {
   const likedPosts = getLikedPosts();
+
   likedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("liked").appendChild(div);
   });
+  console.log(likedPosts)
 };
 
 const displayReportedPosts = () => {
